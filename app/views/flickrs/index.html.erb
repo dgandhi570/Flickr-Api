@@ -1,0 +1,19 @@
+<h1>Flickr#index</h1>
+<p>Find me in app/views/flickr/index.html.erb</p>
+<%= form_with(url: "/",method: "get") do |f| %>
+<%= f.label :uid%>
+<%= f.text_field :uid%>
+<%= f.submit %>
+<%end%>
+
+
+
+<% @photos.each do |p|%>
+<%= p.owner %>
+<span>
+<%= link_to(image_tag(Flickr.url_q(p)), Flickr.url_photopage(p)) %>
+</span>
+<br>
+<br>
+
+<%end%>
